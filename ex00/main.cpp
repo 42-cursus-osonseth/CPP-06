@@ -1,12 +1,7 @@
 #include "ScalarConverter.hpp"
 
-int main ()
+int main()
 {
-
-ScalarConverter::convert("525242");
-
-
-
-
+    ScalarConverter::convert("-2147483649.0");
     return 0;
 }

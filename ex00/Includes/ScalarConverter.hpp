@@ -4,6 +4,8 @@
 #include <string>
 #include <iostream>
 #include <sstream>
+#include <climits>
+#include <cfloat>
 
 class ScalarConverter
 {
