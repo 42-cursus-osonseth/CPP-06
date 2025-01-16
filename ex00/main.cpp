@@ -2,6 +2,6 @@
 
 int main()
 {
-    ScalarConverter::convert("-2147483649.0");
+    ScalarConverter::convert("nanf");
     return 0;
 }

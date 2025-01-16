@@ -68,6 +68,17 @@ void convert_double(long double d)
         std::cout << "float  : " << std::fixed << static_cast<float>(d) << std::endl;
     std::cout << "double : " << std::fixed << d << std::endl;
 }
+void convert_pseudo(std::string str)
+{
+    if (str[1] == 'i')
+        str = str.substr(0, 4);
+    else
+        str = str.substr(0, 3);
+    std::cout << "char   : impossible" << std::endl;
+    std::cout << "int    : impossible" << std::endl;
+    std::cout << "float  : " << str << "f" << std::endl;
+    std::cout << "double : " << str << std::endl;
+}
 bool is_int(std::string str)
 {
     long int integer;
@@ -124,6 +135,15 @@ bool is_double(std::string str)
     convert_double(d);
     return true;
 }
+bool is_pseudo(std::string str)
+{
+    if (str == "+inf" || str == "+inff" || str == "-inf" || str == "-inff" || str == "nan" || str == "nanf")
+    {
+        convert_pseudo(str);
+        return true;
+    }
+    return false;
+}
 
 void ScalarConverter::convert(std::string str)
 {
@@ -134,6 +154,8 @@ void ScalarConverter::convert(std::string str)
     if (is_float(str))
         return;
     if (is_double(str))
+        return;
+    if (is_pseudo(str))
         return;
     else
         std::cout << "Invalid arg : Can't be convert or overflow an double" << std::endl;
