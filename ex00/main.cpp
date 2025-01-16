@@ -1,7 +1,12 @@
 #include "ScalarConverter.hpp"
 
-int main()
+int main(int argc, char **argv)
 {
-    ScalarConverter::convert("nanf");
+    if (argc != 2)
+    {
+        std::cout << "A single argument is required" << std::endl;
+        return 0;
+    }
+    ScalarConverter::convert(std::string(argv[1]));
     return 0;
 }
